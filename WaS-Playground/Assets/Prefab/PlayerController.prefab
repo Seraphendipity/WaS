@@ -207,6 +207,22 @@ MonoBehaviour:
   uName: 
   uNum: 
   bHuman: 1
+--- !u!114 &7261867893006179125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830332023313710258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84bd3e40738964c907674d5a6e42f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfBuildings:
+  - {fileID: 4735275893884885884, guid: 11367c60a3feecd479858a96a60ca2f4, type: 3}
+  protoMat: {fileID: 0}
+  protoDisplacement: 2
 --- !u!1001 &696449523233449403
 PrefabInstance:
   m_ObjectHideFlags: 0
