@@ -33,6 +33,7 @@ public class Pickupable : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<BoxCollider>().isTrigger = false;
+            //TODO: Sword freezes in air, fix
         }
     }
 }

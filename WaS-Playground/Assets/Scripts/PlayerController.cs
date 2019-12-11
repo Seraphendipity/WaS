@@ -22,9 +22,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 worldpos = new Vector3(0,2,0);
     private float mouseX;
-     private float mouseY;
-     private float cameraDif;
-     public Camera camera;
+    private float mouseY;
+    private float cameraDif;
+
+    public Camera cam;
+    Animator anim;
+    Transform head;
+
+    public GameObject pfCastle;
 
     // Player ID
     // Neither uName nor uNum are unique, but the combination of them is
@@ -33,15 +38,19 @@ public class PlayerController : MonoBehaviour
     public bool bHuman; // Controlled by AI (F) or Player (T)
 
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Awake() {
         rb = GetComponent<Rigidbody>();
         points = 0;
         IncrementPointValue(0);
-        winText.enabled = false;
+       // winText.enabled = false;
+
+        anim = GetComponent<Animator>();
+        Debug.Log(anim);
+
 
         height = this.GetComponent<BoxCollider>().size.y; //TODO: Attach to Eye Height
-        cameraDif = camera.transform.position.y - this.transform.position.y + height;
+        cameraDif = cam.transform.position.y - this.transform.position.y + height;
+
     }
 
     // Update is called once per frame
@@ -51,9 +60,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (bHuman) {
-            MovePlayer();
-        }
+        MovePlayer();
+        AnimatePlayer();
     }
 
     void OnTriggerEnter( Collider oc) {
@@ -71,11 +79,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void IncrementPointValue(int i) {
-        points += i;
-        pointsText.text = "Count: " + points.ToString();
-        if (points >= 3) {
-            winText.enabled = true;
-        }
+        // points += i;
+        // pointsText.text = "Count: " + points.ToString();
+        // if (points >= 3) {
+        //     winText.enabled = true;
+        // }
     }
 
     void OnCollisionStay(Collision collision) {
@@ -90,23 +98,52 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(jumpDir * jumpMod, ForceMode.Impulse);
             bGrounded = false;
         }
-        LookAtMouse();
+       // LookAtMouse();
         //rb.MovePosition(Vector3.Lerp(transform.position, transform.position + (vMovement * moveSpeedMod * Time.fixedDeltaTime), Time.fixedDeltaTime));
     }
 
-    void LookAtMouse()
-    {
+    private void AnimatePlayer() {
+        float animSpeed;
+        if(Input.GetAxisRaw("Vertical") != 0) {
+            animSpeed = 0.5f;
+        } else{
+            animSpeed = 0f;
+        }
+        Debug.Log("AnimSpeed: " + animSpeed);
+        anim.SetFloat("speed", animSpeed);
+
+    }
+
+    private void OnAnimatorIK(int layerIndex) {
+        
+  //  }
+//
+    //void LookAtMouse()
+  //  {//
         //TODO: bug, bases on real screen, not game screen window size
         mouseX = Input.mousePosition.x;
         mouseY = Input.mousePosition.y;
 
-        Debug.Log(mouseY);
+        //Debug.Log(mouseY);
         
-        worldpos = camera.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cameraDif));
+        //worldpos = camera.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cameraDif));
         Vector3 lookDir = new Vector3 (worldpos.x,this.transform.position.y, worldpos.z);
+        anim.SetBoneLocalRotation(HumanBodyBones.Head, Quaternion.LookRotation(lookDir,Vector3.up));
+        //head.LookAt(lookDir);
+
+        // //TODO: bug, bases on real screen, not game screen window size
+        // mouseX = Input.mousePosition.x;
+        // mouseY = Input.mousePosition.y;
+
+        // Debug.Log(mouseY);
         
-        this.transform.LookAt(lookDir);
+        // worldpos = camera.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cameraDif));
+        // Vector3 lookDir = new Vector3 (worldpos.x,this.transform.position.y, worldpos.z);
+        
+        // this.transform.LookAt(lookDir);
     }
+
+    
 
     // private void MovePlayer() {
     //     //TODO: REPLACE WITH KINEMATIC SYSTEM

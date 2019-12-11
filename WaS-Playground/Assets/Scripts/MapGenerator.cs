@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public GameObject pfPlayer;
     public GameObject pfFloor;
     public GameObject pfItem;
     
@@ -11,6 +12,7 @@ public class MapGenerator : MonoBehaviour
     void Start()
     {
         Instantiate(pfFloor, Vector3.zero, Quaternion.identity);
+        Instantiate(pfPlayer, new Vector3(0,5,0), Quaternion.identity);
         for(int i = 0; i < Random.Range(3,10); i++) {
             RandomItem();
         }
