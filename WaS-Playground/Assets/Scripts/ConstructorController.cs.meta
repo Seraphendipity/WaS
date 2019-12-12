@@ -3,7 +3,10 @@ guid: 0c84bd3e40738964c907674d5a6e42f4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - protoMat: {instanceID: 0}
+  - castlePrefab: {fileID: 4735275893884885884, guid: 11367c60a3feecd479858a96a60ca2f4,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

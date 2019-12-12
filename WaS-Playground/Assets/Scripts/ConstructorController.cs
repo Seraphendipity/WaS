@@ -13,10 +13,14 @@ public class ConstructorController : MonoBehaviour
     private bool bBuildingMode = false;
     private int previousBuildingId = 0;
     private GameObject currentBuilding = null;
+
+    public GameObject castlePrefab;
+
     // Start is called before the first frame update
     void Start()
     {
         // Reece was here :D
+        // Change one more line
     }
 
     // Update is called once per frame
@@ -51,6 +55,10 @@ public class ConstructorController : MonoBehaviour
                     Quaternion rotation = Quaternion.identity;
                     currentBuilding.transform.position = 
                         new Vector3(mouseLoc.x, protoDisplacement, mouseLoc.z);
+
+                    Debug.Log("Spawning Building");
+                    Vector3 spawnPosition = currentBuilding.transform.position;
+                    GameObject.Instantiate(this.castlePrefab, spawnPosition, rotation);
                 }
 
                 if(Input.GetAxisRaw("MouseScrollWheel") != 0) {
@@ -107,4 +115,6 @@ public class ConstructorController : MonoBehaviour
     private bool IsValidBuildingLocation(GameObject building) {
         return true;
     }
+
+
 }
