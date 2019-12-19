@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ea88bec61dc114082b43b46bd5646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfPlayer: {fileID: 4577121960123733424, guid: 4c579d59dd565b7439cd2e27351d7f87,
+  pfPlayer: {fileID: 1768959290885744038, guid: c9c85b08113bdad4cb0f2c2262d55595,
     type: 3}
   pfFloor: {fileID: 8620665725471333094, guid: 34bb0ffdb148df54c909e5818d13551e, type: 3}
   pfItem: {fileID: 6120009321554922610, guid: ce8fe342421fcca46a2175f595e45a8e, type: 3}
