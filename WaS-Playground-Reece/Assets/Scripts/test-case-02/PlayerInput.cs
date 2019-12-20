@@ -20,7 +20,7 @@ public class PlayerInput : MonoBehaviour
         // Physics.Raycast
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("Player Clicked M0");
-            DisplaySelect();
+            //DisplaySelect();
 
         }
 
@@ -40,15 +40,14 @@ public class PlayerInput : MonoBehaviour
 
         if (hit) {
             //if (hitInfo.transform.GetComponent<ISelectable>() != null) {
-            if (hitInfo.transform.GetComponent<IInteractable>() != null) {
+            //if (hitInfo.transform.GetComponent<IInteractable>() != null) {
                 // FIXME: check if object is owned by player
-                hitInfo.transform.GetComponent<IInteractable>().Interact();
+                //hitInfo.transform.GetComponent<IInteractable>().Interact();
             }
                 //Debug.Log("You clicked a selectable 3D Object");
                 //Debug.Log("Getting SelectData...");
                 //Debug.Log("contextInfo: " + hitInfo.transform.GetComponent<ISelectable>().Select().contextInfo);
                 //Debug.Log("CUSTOMCONTEXTINFO: " + hitInfo.transform.GetComponent<ISelectable>().Select().customContextInfo);
-        }
 
     }
 
