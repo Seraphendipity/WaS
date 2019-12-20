@@ -55,6 +55,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Reece-Assets\Scripts\Building.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\IAttackable.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\ICollectable.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\ICommandable.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\IMoveable.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\Interactable.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\InventoryUI.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\ItemUI.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\PlayerInputManager.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\PlayerMovementHandler.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\PlayerUIRaycaster.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\Resource.cs" />
+     <Compile Include="Assets\Reece-Assets\Scripts\Unit.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CastleController.cs" />
      <Compile Include="Assets\Scripts\ConstructorController.cs" />
