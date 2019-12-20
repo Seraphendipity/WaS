@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Building : MonoBehaviour, Interactable
 {
+    public PlayerInputManager inputManager;
+
     public void Interact()
     {
 
@@ -12,7 +14,6 @@ public class Building : MonoBehaviour, Interactable
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
