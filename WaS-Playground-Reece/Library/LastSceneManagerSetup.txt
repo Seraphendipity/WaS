@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scenes/test-003-click-building-update-player-ui-inventory.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
