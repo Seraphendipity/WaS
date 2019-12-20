@@ -106,11 +106,17 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer() {
         mouseX = Input.mousePosition.x;
         mouseY = Input.mousePosition.y;
-        worldpos = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cameraDif));
+        worldpos = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY-cam.WorldToScreenPoint(transform.position).y, cameraDif));
         //lookDirection = Quaternion.FromToRotation( transform.forward,  cam.ScreenToWorldPoint(new Vector3(mouseX, 0,mouseY)) - transform.position);
         lookDirection = Quaternion.LookRotation(worldpos - transform.position, Vector3.up);
 
-        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+       // inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        Vector3 inputVectorX = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
+        Vector3 inputVectorY = new Vector3(0, 0, Input.GetAxisRaw("Vertical"));
+        inputVectorX = Vector3.RotateTowards(inputVectorX, transform.right, 4, 0)*Input.GetAxisRaw("Horizontal");
+        inputVectorY = Vector3.RotateTowards(inputVectorY, transform.forward, 4, 0)*Input.GetAxisRaw("Vertical");
+        inputVector = inputVectorX + inputVectorY;
+
         if( !inputVector.Equals(Vector3.zero) ) {
             //if(velocityVector.magnitude < maxSpeed) { //TODO: Change to vector maxSpeed
                 velocityVector += Vector3.Normalize(inputVector) * accelerationMod;
