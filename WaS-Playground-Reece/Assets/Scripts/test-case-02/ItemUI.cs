@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class ItemUIEvent : UnityEvent<ItemUI> {}
 
 public class ItemUI : MonoBehaviour
 {
     public Item item;
     public Text itemName;
+
+    public ItemUIEvent primary;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +32,8 @@ public class ItemUI : MonoBehaviour
         this.item = item;
         this.itemName.text = this.item.name;
     }
-    public void onClick()
+    public void onPrimary()
     {
-        Destroy(item.gameObject);
-        Destroy(this.gameObject);
+        primary.Invoke(this);
     }
 }

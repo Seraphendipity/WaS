@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -31,10 +32,21 @@ public class InventoryUI : MonoBehaviour
     }
     public void Refresh()
     {
+        foreach (Transform t in content) {
+            Destroy(t.gameObject);
+        }
+
         foreach (Item indexedItem in this.inventory.items) {
             Debug.Log("Item in inventory -> " + indexedItem.name);
             ItemUI ui = ItemUI.Instantiate(itemUIPrefab, this.content);
             ui.Display(indexedItem);
+            ui.primary.AddListener(UIClick);
         }
+    }
+    public void UIClick(ItemUI itemUI)
+    {
+//        Destroy(item.gameObject);
+        this.inventory.RemoveItem(itemUI.item);
+        Refresh();
     }
 }

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7EF5A505-C0DA-1544-FF07-6FDF5D281FAF}</ProjectGuid>
+    <ProjectGuid>{7B4F5DA0-FF14-A147-767D-1561B038C72A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,48 +45,49 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AbilitiyUI.cs" />
      <Compile Include="Assets\Scripts\broken\EventManager.cs" />
      <Compile Include="Assets\Scripts\broken\MyUIButton.cs" />
      <Compile Include="Assets\Scripts\broken\MyUIButtonReciever.cs" />
-     <Compile Include="Assets\Scripts\EventTriggerDelegateExample.cs" />
-     <Compile Include="Assets\Scripts\Inventory.cs" />
-     <Compile Include="Assets\Scripts\InventoryUI.cs" />
-     <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\ItemUI.cs" />
-     <Compile Include="Assets\Scripts\PlayerInput.cs" />
-     <Compile Include="Assets\Scripts\PlayerUIRaycaster.cs" />
-     <Compile Include="Assets\Scripts\SelectUI.cs" />
+     <Compile Include="Assets\Scripts\test-case-003\PlayerRaycaster.cs" />
      <Compile Include="Assets\Scripts\test-case-01\Building.cs" />
      <Compile Include="Assets\Scripts\test-case-01\ISelectable.cs" />
      <Compile Include="Assets\Scripts\test-case-01\SelectData.cs" />
-     <Compile Include="Assets\Scripts\TransferItem.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\AbilitiyUI.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\EventTriggerDelegateExample.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\Inventory.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\InventoryUI.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\Item.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\ItemUI.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\PlayerUIRaycaster.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\SelectUI.cs" />
+     <Compile Include="Assets\Scripts\test-case-02\TransferItem.cs" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Reece/Documents/wolves-and-sheep-optimus/wolves-and-sheep-optimus/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/Reece/Desktop/WaSElijah/WaS-Playground-Reece/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Users/Reece/Documents/Unity/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

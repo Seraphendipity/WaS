@@ -40,9 +40,10 @@ public class PlayerUIRaycaster : MonoBehaviour
             foreach (RaycastResult result in results)
             {
                 Debug.Log("Hit " + result.gameObject.name);
-                    Debug.Log("reslut ==" + result);
-                    Debug.Log("result.gameObject ==" + result.gameObject);
-                if (result.gameObject.name == "ItemUIPrefab(Clone)");
+                Debug.Log("reslut ==" + result);
+                Debug.Log("result.gameObject ==" + result.gameObject);
+                Debug.Log(result);
+                if (result.gameObject.name == "ItemUIPrefab(Clone)")
                 {
                     Debug.Log("Hit an ItemUIPrefab(Clone)... sending onClick message");
                     result.gameObject.GetComponent<ItemUI>().gameObject.SendMessage("onClick"); // TODO: change this to watch for interface/interface name instead (sellable...);

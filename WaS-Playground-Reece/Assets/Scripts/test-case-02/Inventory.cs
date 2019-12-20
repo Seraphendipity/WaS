@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //Inventory.Instantiate(InventoryPrefab, gameObject parent);
     }
 
     // Update is called once per frame
@@ -21,14 +21,9 @@ public class Inventory : MonoBehaviour
     {
         Item.Instantiate(item, this.transform);
     }
-    public bool RemoveItem(Item item)
+    public void RemoveItem(Item item)
     {
-        foreach (Item i in this.items) {
-            if (i.name == item.name) {
-                Destroy(i);
-                return true;
-            } 
-        }
-        return false;
+        items.Remove(item);
+
     }
 }
