@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public Vector3 maxVelocity = new Vector3(2,0,1f);
-    public Vector3 acceleration = new Vector3(1,0,1);
-    public Vector3 deceleration = new Vector3(1,0,1);
-    public float jumpMod = 1f;
+    //public Vector3 acceleration = new Vector3(1,0,1);
+    //public Vector3 deceleration = new Vector3(1,0,1);
+    public float accelerationMod = 0.2f;
+    public float decelerationMod = 1f;
     public float moveSpeedMod = 1f;
+    public float turningSpeedMod = 100f;
+    public float headUpSpeed = 5f;
+    public float maxSpeed = 5f;
+    public float jumpMod = 1f;
     public float backwardSpeedMultiplier = 1f;
     private Vector3 moveSpeed = new Vector3(0,0,0);
     private Vector3 jumpDir = new Vector3(0,2,0);
@@ -21,9 +26,15 @@ public class PlayerController : MonoBehaviour
     public Text winText;
 
     private Vector3 worldpos = new Vector3(0,2,0);
+    private Vector3 worldposVarY = new Vector3(0,2,0);
     private float mouseX;
     private float mouseY;
     private float cameraDif;
+    private Vector3 velocityVector = Vector3.zero;
+    private Vector3 inputVector = Vector3.zero;
+    private Vector3 decelerationVector;
+    private Quaternion lookDirection;
+    private Quaternion zeroY = Quaternion.Euler(new Vector3(0,1,0));
 
     public Camera cam;
     Animator anim;
@@ -50,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
         height = this.GetComponent<BoxCollider>().size.y; //TODO: Attach to Eye Height
         cameraDif = cam.transform.position.y - this.transform.position.y + height;
+
 
     }
 
@@ -92,21 +104,41 @@ public class PlayerController : MonoBehaviour
     
 
     private void MovePlayer() {
-        Vector3 vInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        rb.MovePosition(transform.position + (vInput * moveSpeedMod * Time.deltaTime));
+        mouseX = Input.mousePosition.x;
+        mouseY = Input.mousePosition.y;
+        worldpos = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cameraDif));
+        //lookDirection = Quaternion.FromToRotation( transform.forward,  cam.ScreenToWorldPoint(new Vector3(mouseX, 0,mouseY)) - transform.position);
+        lookDirection = Quaternion.LookRotation(worldpos - transform.position, Vector3.up);
+
+        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        if( !inputVector.Equals(Vector3.zero) ) {
+            //if(velocityVector.magnitude < maxSpeed) { //TODO: Change to vector maxSpeed
+                velocityVector += Vector3.Normalize(inputVector) * accelerationMod;
+                velocityVector = Vector3.ClampMagnitude(velocityVector, maxSpeed);
+                transform.rotation = Quaternion.Euler(0, Quaternion.Lerp(transform.rotation, lookDirection, Time.deltaTime * turningSpeedMod).eulerAngles.y, 0);
+            //}
+        } else {
+            decelerationVector = Vector3.Normalize(velocityVector) * decelerationMod;
+            if( velocityVector.magnitude > decelerationVector.magnitude ) {
+                velocityVector -= decelerationVector;
+            } else {
+                velocityVector = Vector3.zero;
+            }
+        }
+        rb.MovePosition(transform.position + (velocityVector * Time.deltaTime));
         if(Input.GetKeyUp(KeyCode.Space) && bGrounded) {
             rb.AddForce(jumpDir * jumpMod, ForceMode.Impulse);
             bGrounded = false;
         }
-       // LookAtMouse();
+       //LookAtMouse();
         //rb.MovePosition(Vector3.Lerp(transform.position, transform.position + (vMovement * moveSpeedMod * Time.fixedDeltaTime), Time.fixedDeltaTime));
     }
 
     private void AnimatePlayer() {
         float animSpeed;
         if(Input.GetAxisRaw("Vertical") != 0) {
-            animSpeed = 0.5f;
-        } else{
+            animSpeed = 1f;
+        } else {
             animSpeed = 0f;
         }
         Debug.Log("AnimSpeed: " + animSpeed);
@@ -121,14 +153,20 @@ public class PlayerController : MonoBehaviour
     //void LookAtMouse()
   //  {//
         //TODO: bug, bases on real screen, not game screen window size
-        mouseX = Input.mousePosition.x;
-        mouseY = Input.mousePosition.y;
 
-        //Debug.Log(mouseY);
+        float height = 5;
+        Vector3 lookWithY = worldpos;
+        Vector3 lookSansY = new Vector3(worldpos.x, 0, worldpos.z);
+        if(worldpos.y+height>=0) {
+            worldposVarY = Vector3.Lerp(worldposVarY, lookWithY, Time.deltaTime * headUpSpeed);
+        } else {
+            worldposVarY = Vector3.Lerp(worldposVarY, lookSansY, Time.deltaTime * headUpSpeed);
+        }
+        anim.SetLookAtWeight(1);
         
-        //worldpos = camera.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cameraDif));
-        Vector3 lookDir = new Vector3 (worldpos.x,this.transform.position.y, worldpos.z);
-        anim.SetBoneLocalRotation(HumanBodyBones.Head, Quaternion.LookRotation(lookDir,Vector3.up));
+        anim.SetLookAtPosition(worldposVarY);
+        //Vector3 lookDir = new Vector3 (worldpos.x,this.transform.position.y, worldpos.z);
+        //anim.SetBoneLocalRotation(HumanBodyBones.Head, Quaternion.LookRotation(lookDir,Vector3.up));
         //head.LookAt(lookDir);
 
         // //TODO: bug, bases on real screen, not game screen window size
