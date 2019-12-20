@@ -23,12 +23,6 @@ public class PlayerRaycaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("Using Primary Graphic Raycaster");
-            pointerEventData = new PointerEventData(eventSystem);
-            pointerEventData.position = Input.mousePosition;
-            List<RaycastResult> results = new List<RaycastResult>();
-        }
 
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("Using Primary Graphic Raycaster");
@@ -40,12 +34,19 @@ public class PlayerRaycaster : MonoBehaviour
             foreach (RaycastResult result in results) {
 
                 Debug.Log("Primary UI Hit: " + result);
-                Debug.Log("Attempting SendMessage(onPrimary)");
                 if (result.gameObject.GetComponent<ItemUI>() != null)
                 {
+                    Debug.Log("Attempting SendMessage(onPrimary)");
                     result.gameObject.SendMessage("onPrimary");
                 }
             }
         }
+
+        //if (Input.GetMouseButtonDown(0)) {
+            //Debug.Log("Using Primary Graphic Raycaster");
+            //pointerEventData = new PointerEventData(eventSystem);
+            //pointerEventData.position = Input.mousePosition;
+            //List<RaycastResult> results = new List<RaycastResult>();
+        //}
     }
 }

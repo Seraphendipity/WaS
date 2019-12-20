@@ -48,7 +48,10 @@
      <Compile Include="Assets\Scripts\broken\EventManager.cs" />
      <Compile Include="Assets\Scripts\broken\MyUIButton.cs" />
      <Compile Include="Assets\Scripts\broken\MyUIButtonReciever.cs" />
+     <Compile Include="Assets\Scripts\test-case-003\IInteractable.cs" />
      <Compile Include="Assets\Scripts\test-case-003\PlayerRaycaster.cs" />
+     <Compile Include="Assets\Scripts\test-case-003\Shop.cs" />
+     <Compile Include="Assets\Scripts\test-case-003\ShopInventoryUI.cs" />
      <Compile Include="Assets\Scripts\test-case-01\Building.cs" />
      <Compile Include="Assets\Scripts\test-case-01\ISelectable.cs" />
      <Compile Include="Assets\Scripts\test-case-01\SelectData.cs" />
