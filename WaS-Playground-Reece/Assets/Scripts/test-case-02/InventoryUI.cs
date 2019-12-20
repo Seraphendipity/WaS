@@ -8,8 +8,6 @@ public class InventoryUI : MonoBehaviour
     public Inventory inventory;
     public Transform content;
     public ItemUI itemUIPrefab;
-    public Inventory buyerInventory;
-    // FIXME: public Context context;
 
     // Start is called before the first frame update
     void Start()
@@ -64,9 +62,6 @@ public class InventoryUI : MonoBehaviour
     {
          //Destroy(item.gameObject);
         this.inventory.RemoveItem(itemUI.item);
-        if (this.buyerInventory != null) {
-            this.buyerInventory.AddItem(itemUI.item);
-        }
 
     }
     // TODO: public virtual void RegisterPlayerListener();

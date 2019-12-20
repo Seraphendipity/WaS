@@ -46,7 +46,7 @@ public class PlayerUIRaycaster : MonoBehaviour
                 if (result.gameObject.name == "ItemUIPrefab(Clone)")
                 {
                     Debug.Log("Hit an ItemUIPrefab(Clone)... sending onClick message");
-                    result.gameObject.GetComponent<ItemUI>().gameObject.SendMessage("onClick"); // TODO: change this to watch for interface/interface name instead (sellable...);
+                    result.gameObject.GetComponent<ItemUI>().gameObject.SendMessage("onPrimary"); // TODO: change this to watch for interface/interface name instead (sellable...);
                 }
             }
         }

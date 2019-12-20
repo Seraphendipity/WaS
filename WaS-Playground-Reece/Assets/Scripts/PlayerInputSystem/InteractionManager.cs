@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    Interactable target;
-    Interactable targetOfTarget;
+    public Interactable target;
+    public Interactable targetOfTarget;
+    public Player alignment;
+
 }
