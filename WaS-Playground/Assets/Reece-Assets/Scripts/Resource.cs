@@ -3,34 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Resource : MonoBehaviour, ICollectable
+public class Resource : MonoBehaviour
 {
+    public string resourceName;
     public int quantity;
 
-    public int Collect(int amount)
+    public void AddResource(int addQuantity)
     {
-        return 1;
+    
     }
 
-    public void Interact(Interactable i)
+    public Resource RemoveResource(int removeQuantity)
     {
-        Debug.Log("Interacted with resource");
+    
     }
 
-    public void Interact()
+}
+
+public class ResourceUI : MonoBehaviour
+{
+    public Resource resource;
+    public GameObject resourceUIPrefab;
+    public Transform content;
+
+    private void Start()
     {
-        Debug.Log("Interacted with resource");
+        if (resource != null) {
+            Display(resource);
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.quantity = 100;
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void Display(Resource resource)
     {
-        
+        ResourceUI _UI = ResourceUI.Instantiate(resourceUIPrefab, content);
+    }
+    
+    public void Refresh()
+    {
+
     }
 }
+
