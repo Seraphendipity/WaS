@@ -386,7 +386,7 @@ MonoBehaviour:
   pfPlayer: {fileID: 1768959290885744038, guid: c9c85b08113bdad4cb0f2c2262d55595,
     type: 3}
   pfFloor: {fileID: 8620665725471333094, guid: 34bb0ffdb148df54c909e5818d13551e, type: 3}
-  pfItem: {fileID: 6120009321554922610, guid: ce8fe342421fcca46a2175f595e45a8e, type: 3}
+  pfItem: {fileID: 4764745303708344744, guid: f1361c3240d4aac428962ac8ca695a6e, type: 3}
 --- !u!4 &1075395901
 Transform:
   m_ObjectHideFlags: 0

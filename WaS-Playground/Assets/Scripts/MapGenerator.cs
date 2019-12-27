@@ -11,11 +11,9 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(pfItem, new Vector3(0,2,0), Quaternion.identity);
         Instantiate(pfFloor, Vector3.zero, Quaternion.identity);
         Instantiate(pfPlayer, new Vector3(0,0,0), Quaternion.identity);
-        for(int i = 0; i < Random.Range(3,10); i++) {
-            RandomItem();
-        }
     }
 
     // Update is called once per frame
@@ -23,8 +21,5 @@ public class MapGenerator : MonoBehaviour
     {
         
     }
-    private void RandomItem() {
-        Vector3 randPosition = new Vector3(Random.Range(-10.0f, 10.0f), 0.75f, Random.Range(-10.0f, 10.0f));
-        Instantiate(pfItem, randPosition, Quaternion.identity);
-    }
+
 }

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Reece-Assets/Scenes/PlayerInputSystemTest.unity
+- path: Assets/Scenes/MiniGame.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

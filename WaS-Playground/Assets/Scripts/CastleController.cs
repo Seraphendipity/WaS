@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastleController : MonoBehaviour
+public class CastleController : BuildingController
 {
     // Start is called before the first frame update
     void Start()

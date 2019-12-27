@@ -14,7 +14,7 @@ public class ConstructorController : MonoBehaviour
     private int previousBuildingId = 0;
     private GameObject currentBuilding = null;
 
-    public GameObject castlePrefab;
+    //public GameObject castlePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -54,29 +54,29 @@ public class ConstructorController : MonoBehaviour
                     Vector3 mouseLoc = hit.point;
                     Quaternion rotation = Quaternion.identity;
                     currentBuilding.transform.position = 
-                        new Vector3(mouseLoc.x, protoDisplacement, mouseLoc.z);
+                        new Vector3(mouseLoc.x, protoDisplacement + 1, mouseLoc.z);
 
                     Debug.Log("Spawning Building");
-                    Vector3 spawnPosition = currentBuilding.transform.position;
-                    GameObject.Instantiate(this.castlePrefab, spawnPosition, rotation);
+                   //Vector3 spawnPosition = currentBuilding.transform.position;
+                    //GameObject.Instantiate(this.pfBuildings[0], spawnPosition, rotation);
                 }
 
-                if(Input.GetAxisRaw("MouseScrollWheel") != 0) {
-                    if(Input.GetAxisRaw("MouseScrollWheel") == -1f) {
-                        // Next Building
-                    } else {
-                        // Prev Building
-                    }
-                }
+                // if(Input.GetAxisRaw("MouseScrollWheel") != 0) {
+                //     if(Input.GetAxisRaw("MouseScrollWheel") == -1f) {
+                //         // Next Building
+                //     } else {
+                //         // Prev Building
+                //     }
+                // }
 
                 //Rotate Building
 
-                if(Input.GetMouseButtonDown(2)) {
+                if(Input.GetMouseButtonDown(1)) {
                     //Place Building
                     if(IsValidBuildingLocation(currentBuilding)) {
                         currentBuilding.transform.position -= new Vector3(0,protoDisplacement,0);
                         //DeProtofy
-                        GetComponent<Renderer>().material = realMat;
+                        //GetComponent<Renderer>().material = realMat;
                         currentBuilding = null;
                         bBuildingMode = false;
 
@@ -91,8 +91,6 @@ public class ConstructorController : MonoBehaviour
                 currentBuilding = null;
             }
         }
-
-            
 
     }
 

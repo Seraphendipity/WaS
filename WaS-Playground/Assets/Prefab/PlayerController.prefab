@@ -1081,6 +1081,7 @@ GameObject:
   - component: {fileID: 3230485563452683924}
   - component: {fileID: 717739520284617736}
   - component: {fileID: 6973144943830944941}
+  - component: {fileID: 2661628186539700032}
   - component: {fileID: 4886116879103240995}
   m_Layer: 0
   m_Name: Player
@@ -1181,6 +1182,34 @@ MonoBehaviour:
   uName: 
   uNum: 
   bHuman: 1
+--- !u!114 &2661628186539700032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737960116920847524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe901f2aa9f3f9429121f916325363a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: {x: 2, y: 0, z: 1}
+  accelerationMod: 0.2
+  decelerationMod: 1
+  moveSpeedMod: 1
+  turningSpeedMod: 100
+  headUpSpeed: 5
+  maxSpeed: 5
+  jumpMod: 1
+  backwardSpeedMultiplier: 1
+  pointsText: {fileID: 0}
+  winText: {fileID: 0}
+  cam: {fileID: 0}
+  pfCastle: {fileID: 0}
+  uName: 
+  uNum: 
+  bHuman: 0
 --- !u!114 &4886116879103240995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,10 +1223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfBuildings:
-  - {fileID: 4735275893884885884, guid: 11367c60a3feecd479858a96a60ca2f4, type: 3}
+  - {fileID: 7439187254368056148, guid: b91ec66efa8802b47bee189d18809ec9, type: 3}
   protoMat: {fileID: 0}
   protoDisplacement: 2
-  castlePrefab: {fileID: 0}
 --- !u!1 &6808136193669348509
 GameObject:
   m_ObjectHideFlags: 0
