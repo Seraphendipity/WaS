@@ -11,11 +11,7 @@ public class InteractionBehaviour
 
 public interface Interactable 
 {
-    // Aligment 
-    // Target
-    // Target of Target
-    // Events
-    // EventResponders
-
     void Interact();
+    void LeftClick();
+    void RightClick();
 }

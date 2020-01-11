@@ -2,35 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, IAttackable, ICommandable, IMoveable
+public class Unit : MonoBehaviour, Interactable
 {
     public Player commander;
     public int hitPoints;
 
-    public void Attack(int damage)
+    public void Spawn(Player owner)
     {
-        Debug.Log("I am Interactable->IAttackable");
-    }
-
-    public void Command(Interactable target)
-    {
-        Debug.Log(this.name + " is interacting with " + target);
-        target.Interact();
-    }
-
-
-    public void MoveTo(Transform destination)
-    {
-        Vector3 move = Vector3.MoveTowards(this.transform.position, destination.position, 5);
-        this.transform.position = move;
+        this.commander = owner;
     }
 
     public void Interact()
     {
-        if (this.commander == null)
-        {
-            Attack(3);
-        }
+
+    }
+
+    public void LeftClick()
+    {
+        Debug.Log("Unit LeftClick()");
+    }
+
+    public void RightClick()
+    {
+        Debug.Log("Unit RightClick()");
     }
 
     // Start is called before the first frame update

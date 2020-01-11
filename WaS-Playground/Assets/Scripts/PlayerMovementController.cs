@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    public float velocityMod = 0.2f;
+    public float velocityMod = 100f;
     public float accelerationMod = 0.2f;
-    public float jumpMod = 1f;
+    public float jumpMod = 25f;
     public int jumpInput = 1;
     private Rigidbody rb;
     Animator animator;
@@ -45,9 +45,6 @@ public class PlayerMovementController : MonoBehaviour
     }
     
     private void MoveInput() {
-        mouseX = Input.mousePosition.x;
-        mouseY = Input.mousePosition.y; 
-        inputVector += Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
         if(Input.GetKeyUp(KeyCode.Space) && bGrounded) {
             jumpInput = 1;
             bGrounded = false;
@@ -55,11 +52,15 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     private void MovePhysics() {
+        mouseX = Input.mousePosition.x;
+        mouseY = Input.mousePosition.y; 
+        inputVector = Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
 //        anim.SetFloat("speed", velocityVector.magnitude/maxSpeed);
-        acceleration = inputVector * accelerationMod;
-        inputVector = Vector3.zero;
-        velocity += acceleration * velocityMod;
-        Vector3.ClampMagnitude(velocity, maxSpeed);
+        //acceleration = inputVector * accelerationMod;
+        velocity = inputVector * velocityMod;
+        //inputVector = Vector3.zero;
+        //velocity += acceleration;
+        //Vector3.ClampMagnitude(velocity, maxSpeed);
         animator.SetFloat("speed", velocity.magnitude/maxSpeed);
         rb.MovePosition(transform.position + (velocity * Time.fixedDeltaTime));
 
@@ -203,5 +204,32 @@ public class PlayerMovementController : MonoBehaviour
     //     if(inputVector.z > maxVector.z) {
     //         inputVector.z = maxVector.z;}
     // }
+
+//         private void MoveInput() {
+//         mouseX = Input.mousePosition.x;
+//         mouseY = Input.mousePosition.y; 
+//         inputVector += Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
+//         if(Input.GetKeyUp(KeyCode.Space) && bGrounded) {
+//             jumpInput = 1;
+//             bGrounded = false;
+//         }
+//     }
+
+//     private void MovePhysics() {
+// //        anim.SetFloat("speed", velocityVector.magnitude/maxSpeed);
+//         acceleration = inputVector * accelerationMod;
+//         inputVector = Vector3.zero;
+//         velocity += acceleration * velocityMod;
+//         Vector3.ClampMagnitude(velocity, maxSpeed);
+//         animator.SetFloat("speed", velocity.magnitude/maxSpeed);
+//         rb.MovePosition(transform.position + (velocity * Time.fixedDeltaTime));
+
+//         if((jumpInput != 0) && bGrounded) {
+//             rb.AddForce(Vector3.up * jumpMod * jumpInput, ForceMode.Impulse);
+//             jumpInput = 0;
+//         }
+
+
+//     }
 
 }

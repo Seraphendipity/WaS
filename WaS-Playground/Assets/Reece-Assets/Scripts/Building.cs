@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Building : MonoBehaviour, Interactable
 {
-    public PlayerInputManager inputManager;
-    // public GameObject pfPlayer;
-
     public void Interact()
     {
 
+    }
+
+    public void LeftClick()
+    {
+        Debug.Log("Building LeftClick()");
+    }
+
+    public void RightClick()
+    {
+        Debug.Log("Building RightClick()");
     }
 
     // Start is called before the first frame update

@@ -1166,15 +1166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b65f6a98636de9409c040a8354f9426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: {x: 2, y: 0, z: 1}
-  accelerationMod: 1
-  decelerationMod: 1
-  moveSpeedMod: 1
-  turningSpeedMod: 100
-  headUpSpeed: 5
-  maxSpeed: 5
-  jumpMod: 1
-  backwardSpeedMultiplier: 1
   pointsText: {fileID: 0}
   winText: {fileID: 0}
   cam: {fileID: 1768959290809609718}
@@ -1194,22 +1185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe901f2aa9f3f9429121f916325363a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: {x: 2, y: 0, z: 1}
+  velocityMod: 5
   accelerationMod: 0.2
-  decelerationMod: 1
-  moveSpeedMod: 1
-  turningSpeedMod: 100
-  headUpSpeed: 5
-  maxSpeed: 5
   jumpMod: 1
-  backwardSpeedMultiplier: 1
-  pointsText: {fileID: 0}
-  winText: {fileID: 0}
-  cam: {fileID: 0}
-  pfCastle: {fileID: 0}
-  uName: 
-  uNum: 
-  bHuman: 0
+  jumpInput: 1
+  maxSpeed: 5
+  headUpSpeed: 5
 --- !u!114 &4886116879103240995
 MonoBehaviour:
   m_ObjectHideFlags: 0
